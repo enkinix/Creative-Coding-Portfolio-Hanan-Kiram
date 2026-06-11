@@ -1,0 +1,69 @@
+let snake = [];
+let rez = 20;
+let food;
+let w;
+let h;
+let dirX = 1;
+let dirY = 0;
+
+function setup() {
+  createCanvas(600, 600);
+  w = floor(width / rez);
+  h = floor(height / rez);
+  frameRate(10);
+  snake.push(createVector(floor(w / 2), floor(h / 2)));
+  spawnFood();
+}
+
+function spawnFood() {
+  let x = floor(random(w));
+  let y = floor(random(h));
+  food = createVector(x, y);
+}
+
+function draw() {
+  scale(rez);
+  background(30, 35, 45);
+  let head = snake[snake.length - 1].copy();
+  head.x += dirX;
+  head.y += dirY;
+  if (head.x < 0 || head.x >= w || head.y < 0 || head.y >= h) {
+    background(255, 75, 75);
+    noLoop();
+    return;
+  }
+  
+  for (let i = 0; i < snake.length - 1; i++) {
+    if (snake[i].x === head.x && snake[i].y === head.y) {
+      background(255, 75, 75);
+      noLoop();
+      return;
+    }
+  }
+  
+  snake.push(head);
+  if (head.x === food.x && head.y === food.y) {
+    spawnFood();
+  } else {
+    snake.shift();
+  }
+  fill(255, 90, 95);
+  noStroke();
+  rect(food.x, food.y, 1, 1);
+  fill(78, 205, 196);
+  for (let i = 0; i < snake.length; i++) {
+    rect(snake[i].x, snake[i].y, 1, 1);
+  }
+}
+
+function keyPressed() {
+  if (keyCode === LEFT_ARROW && dirX !== 1) {
+    dirX = -1; dirY = 0;
+  } else if (keyCode === RIGHT_ARROW && dirX !== -1) {
+    dirX = 1; dirY = 0;
+  } else if (keyCode === UP_ARROW && dirY !== 1) {
+    dirX = 0; dirY = -1;
+  } else if (keyCode === DOWN_ARROW && dirY !== -1) {
+    dirX = 0; dirY = 1;
+  }
+}
