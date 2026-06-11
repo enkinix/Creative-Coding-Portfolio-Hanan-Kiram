@@ -1,0 +1,31 @@
+let bgColor;
+let currentMode = "Follower";
+function setup() {
+  createCanvas(600, 600);
+  bgColor = color(245, 245, 245);
+}
+function draw() {
+  background(bgColor);
+  fill(100);
+  noStroke();
+  textSize(16);
+  text(`Mode: ${currentMode} | Press 'C' or 'B' to trigger changes`, 30, 40);
+
+  let dynamicSize = map(mouseX, 0, width, 20, 150);
+  let r = map(mouseY, 0, height, 0, 255);
+  let g = map(mouseX, 0, width, 100, 255);
+  fill(r, g, 200);
+
+  ellipse(mouseX, mouseY, dynamicSize, dynamicSize);
+}
+
+function keyPressed() {
+  if (key === 'c' || key === 'C') {
+    bgColor = color(random(50, 100), random(50, 100), random(150, 200));
+    currentMode = "Custom Palette";
+  }
+  if (key === 'b' || key === 'B') {
+    bgColor = color(245, 245, 245);
+    currentMode = "Reset View";
+  }
+}
