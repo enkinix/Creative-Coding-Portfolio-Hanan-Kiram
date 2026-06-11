@@ -1,0 +1,29 @@
+function setup() {
+  createCanvas(600, 600);
+  noLoop();
+}
+
+function draw() {
+  background(20, 24, 35);
+  
+  let totalShapes = 12;
+  
+  for (let i = 0; i < totalShapes; i++) {
+    let xSpacing = width / (totalShapes + 1);
+    let x = xSpacing * (i + 1);
+    
+    fill(50, 150, i * (255 / totalShapes));
+    noStroke();
+    ellipse(x, height * 0.35, 30, 30);
+  }
+  
+  for (let j = totalShapes; j > 0; j--) {
+    let diameter = j * 35;
+    
+    noFill();
+    stroke(255, 180, 0, 150);
+    strokeWeight(2);
+    rectMode(CENTER);
+    rect(width / 2, height * 0.75, diameter, diameter, 5);
+  }
+}
