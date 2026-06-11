@@ -1,0 +1,21 @@
+let angle = 0;
+
+function setup() {
+  createCanvas(600, 600);
+}
+
+function draw() {
+  background(245);
+  translate(width / 2, height / 2);
+  angle += 0.02;
+  rotate(angle);
+  stroke(40, 50, 75);
+  strokeWeight(2);
+  fill(255, 107, 107);
+  rectMode(CENTER);
+  rect(0, 0, 100, 100);
+  fill(78, 205, 196);
+  ellipse(-120, 0, 40, 40);
+  ellipse(120, 0, 40, 40);
+  line(-100, 0, 100, 0);
+}
