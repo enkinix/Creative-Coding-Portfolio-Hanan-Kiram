@@ -1,0 +1,38 @@
+let posX, posY;
+let velX, velY;
+let radius = 25;
+let baseColor;
+
+function setup() {
+  createCanvas(600, 600);
+  posX = width / 2;
+  posY = height / 2;
+  velX = random(3, 6);
+  velY = random(-5, -2);
+  baseColor = color(52, 152, 219);
+}
+
+function draw() {
+  background(20, 24, 30);
+  posX += velX;
+  posY += velY;
+  if (posX + radius >= width || posX - radius <= 0) {
+    velX *= -1;
+    triggerShakeEffect();
+  }
+  if (posY + radius >= height || posY - radius <= 0) {
+    velY *= -1;
+    triggerShakeEffect();
+  }
+
+  noStroke();
+  fill(baseColor);
+  ellipse(posX, posY, radius * 2);
+}
+
+function triggerShakeEffect() {
+  baseColor = color(random(150, 255), random(100, 200), random(50, 150));
+  push();
+  translate(random(-8, 8), random(-8, 8));
+  pop();
+}
