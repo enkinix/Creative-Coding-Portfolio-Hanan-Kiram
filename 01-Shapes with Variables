@@ -1,0 +1,31 @@
+let shapeSize;
+let posX, posY;
+let fillBg, fillCircle, fillRect, strokeLine;
+
+function setup() {
+  createCanvas(600, 600);
+  
+  shapeSize = random(40, 100);
+  posX = random(width * 0.2, width * 0.4);
+  posY = random(height * 0.2, height * 0.4);
+  
+  fillBg = [240, 240, 245];
+  fillCircle = [255, 99, 71];
+  fillRect = [70, 130, 180];
+  strokeLine = [46, 139, 87];
+}
+
+function draw() {
+  background(fillBg);
+  
+  stroke(strokeLine);
+  strokeWeight(4);
+  line(posX, posY, posX + shapeSize * 3, posY + shapeSize * 3);
+  
+  noStroke();
+  fill(fillRect);
+  rect(posX, posY, shapeSize * 2, shapeSize);
+  
+  fill(fillCircle);
+  ellipse(posX + shapeSize, posY + shapeSize, shapeSize, shapeSize);
+}
