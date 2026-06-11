@@ -1,0 +1,22 @@
+function setup() {
+  createCanvas(600, 600);
+  textFont('Helvetica, Arial, sans-serif'); 
+}
+
+function draw() {
+  background(240, 242, 245);
+  fill(44, 62, 80);
+  noStroke();
+  textSize(36);
+  textAlign(CENTER, CENTER);
+  text("Creative Typographic Layer", width / 2, height * 0.3);
+  let dynamicSize = map(sin(frameCount * 0.05), -1, 1, 16, 24);
+  textSize(dynamicSize);
+  fill(155, 89, 182);
+  text("Dynamic Font Scale & Tracking Demo", width / 2, height * 0.5);
+  textSize(14);
+  fill(127, 140, 141);
+  let paraText = "This layout uses a standard system web font. Using boundaries allows long content lines to auto-wrap accurately inside standard paragraph boxes.";
+  rectMode(CENTER);
+  text(paraText, width / 2, height * 0.7, 400, 150); 
+}
