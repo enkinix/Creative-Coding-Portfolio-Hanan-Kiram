@@ -1,0 +1,22 @@
+let angleTrack = 0;
+function setup() {
+  createCanvas(600, 600);
+  background(240);
+}
+
+function draw() {
+  background(240, 240, 240, 15); 
+  angleTrack += 0.02;
+  translate(width / 2, height / 2);
+  
+  for (let i = 0; i < 6; i++) {
+    let distanceRadius = (i * 45) + 30;
+    let x = cos(angleTrack * (i * 0.5)) * distanceRadius;
+    let y = sin(angleTrack * (i * 0.5)) * distanceRadius;
+    stroke(30, 40, 80 + (i * 25));
+    strokeWeight(i + 2);
+    fill(255, 80, 120);
+    
+    ellipse(x, y, 15 + i * 4, 15 + i * 4);
+  }
+}
