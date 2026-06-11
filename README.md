@@ -1,1 +1,2 @@
 # Creative-Coding-Portfolio
+For this Task, I was required to make 10 exercises. Each task had set of instructions and a guide on what to make. I have completed every experiment by following the demos and tutorials and also with the help of my classmates. I am satisfied with the exercises I have completed and if I was needed to do this again, I would research more and be more creative with my works.
